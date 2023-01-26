@@ -9,11 +9,6 @@ block variables
 block styles
   link(rel='stylesheet' href='assets/css/blocks/banner.css')
   link(rel='stylesheet' href='assets/css/blocks/quiz.css')
-  link(rel='stylesheet' href='assets/css/blocks/widget-nav.css')
-  link(rel='stylesheet' href='assets/css/blocks/widget-call.css')
-  link(rel='stylesheet' href='assets/css/blocks/widget-video.css')
-  link(rel='stylesheet' href='assets/css/blocks/widget-gift.css')
-  link(rel='stylesheet' href='assets/css/blocks/lucky-wheel.css')
 
 block content
   main.main.main--pt0
@@ -27,7 +22,7 @@ block content
         +contact-form('popup-form, --popup', 'download-schedule', 'Вам куда удобнее отправить?')
     +popup('--p-xs')#consultation
       +free-consultation
-    +popup('--lucky-wheel')#lucky-wheel.active
+    +popup('--lucky-wheel')#lucky-wheel
       +lucky-wheel
     +popup#leave
       +popup-form('Уже уходите?', 'Оставьте заявку и&nbsp;получите тренировку в&nbsp;подарок', 'assets/img/contact-from_leave.png')
@@ -36,5 +31,5 @@ block content
 block widgets
   +widget-nav
   +widget-call
-  +widget-video
   +widget-gift
+  +widget-video
