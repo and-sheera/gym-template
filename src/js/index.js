@@ -58,13 +58,13 @@ function popup() {
     }
   }
 
-  // if (document.querySelector('#leave')) {
-  //   document.addEventListener('mouseleave', (event) => {
-  //     if (event.clientY < 0) {
-  //       window.openPopup('leave')
-  //     }
-  //   })
-  // }
+  if (document.querySelector('#leave')) {
+    document.addEventListener('mouseleave', (event) => {
+      if (event.clientY < 0) {
+        window.openPopup('leave')
+      }
+    })
+  }
 }
 
 function widgetNav() {
@@ -129,9 +129,9 @@ function widgetVideo() {
 }
 
 function widgetGift() {
-  const widgetElement = document.querySelector('.wheel-dot')
+  const widgetElement = document.querySelector('.widget-gift')
   if (widgetElement) {
-    widgetElement.querySelector('.wheel-dot__close-btn').addEventListener('click', function () {
+    widgetElement.querySelector('.widget-gift__close-btn').addEventListener('click', function () {
       widgetElement.classList.add('hide')
     })
   }
