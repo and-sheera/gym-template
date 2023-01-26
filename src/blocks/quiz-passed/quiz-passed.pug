@@ -1,0 +1,18 @@
+mixin quiz-passed(mods)
+  -
+    const baseName = 'quiz-passed'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .quiz-passed(class=allMods)&attributes(attributes)
+    .quiz-passed__info
+      .quiz-passed__label Тест успешно пройден!
+      +contact-form('', 'quiz-passed')
+    .quiz-passed__img: img(src='assets/img/quiz-passed_tel.png' alt='')
+    block

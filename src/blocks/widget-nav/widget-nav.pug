@@ -1,0 +1,27 @@
+mixin widget-nav(mods)
+  -
+    const baseName = 'widget-nav'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .widget-nav(class=allMods)&attributes(attributes)
+    button.widget-nav__button
+    .widget-nav__body
+      .widget-nav__text Получить бесплатно:
+      .widget-nav__list
+        a.widget-nav__item(href='#first-training')
+          .widget-nav__icon: img(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAF9SURBVHgB1ZaxSgNBEIYnoIVdTGKncM+gYJ1HUEgpGN/AUqvLQ4gp8gKxiJyp8xIaSJtnULATxn+8Odhbbze3e1foD38zuzPf7rGZDFFDMXMKf8EP8J4R78LH1Ka4rGcBwgm8gT/gc4qRnvYRzqSgxjIL+KKgQgI8o1AhaWwU2eoNDuAV+yXAw1DY0CqyrQlcwx0KFZImHuDSAepTrAKBP4+GmuivA+cUIyQO4AsfUNdKQAqVgtaaf10DOIM/4XuziPxgb+GRB9SH36zCO4FVhabGxrRivVcBKnQZBERwYW1MLdCrAyTxnrHXBi6qYIme5BdQTu4AyU37FbVM4JQcn9IHvLLi3s6AtRHnb6BrBu84fy2zGsAbAzSgUFlFlzU/6RHFCInzUGC0UGCf895VAnLecv45kKs7Q/tAJHXY3Rl2AYchrKInvrNfKwdwTKFC0qkFlOnInpoy3ZvomkxZcX+IBnCjt5VH82TSqE2h3gkb7UWBMunKxDuhhvoGht4xS76O8KEAAAAASUVORK5CYII=' alt='')
+          .widget-nav__text Первая тренировка
+        a.widget-nav__item(href='#' onclick=`window.openPopup('consultation'); return false;`)
+          .widget-nav__icon: img(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAElSURBVHgBvZUBDcIwEEV/UYADcAAOQAISwAEoAAfMwcABKBgoAAfFATg47lhDFrJ2R3bbS5ot6aWvvfZaENGYW0H1eG5rWMGD5dTMHBaQjgwGDLi9FHFjGCCyhyJuBgNEdlXEDS32TWR3ZewCLRHZCX2SqLMqU7RkEL7nhriVc06b7jQ8azkAz8iKzG6Qz8p41lJrx0jMCNZQeUd2e139CHcRmZfJwJKwdz4ivEk/LJGUxbPZjTBLCH1dSsMkc277v/eY0oXuqwPy/7Ym5hnG+MpdQibpuiH9vBxQPlGaWty4VG9IVwGb9+zlmiLCCkXY+m5UQ/EaVPOvcEnxOrSVBaEUftaLrCKVu/TQi+xHKuktGly5gyFUlsoc5cmdhK+c5gu31RsdbuN12iIxlgAAAABJRU5ErkJggg==' alt='')
+          .widget-nav__text Консультация
+        a.widget-nav__item(href='#' onclick=`window.openPopup('download-schedule'); return false;`)
+          .widget-nav__icon: img(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGeSURBVHgBtZa9SgNBFIXPhoCVuIoIgmgstNTCJ7CUINraiS8Q8wCiKJb6AFaCD2BjI4qlVqJGEIJIIkgqfyKiVmE9F9aQTGZh72TywdkZdn7O3NmZnQFioigqUB9R91SoZVgIYqNpJmVL+Td1RtWhox4EQdFaQrNVywjvqBw8kk14X6IWqS8aHjAtc6R7zJ8yn0N6atQu25433xiRSURD1Gg8/8JOXK8S6WlQobTPGCOpUgtUH3WpjCIJ8chLxpzGfYZckwg8GbUadpjd02gqzldb3mtXo5WOBcLIHplMogd0mDGycSZrlrrD6HJqbUt/gtpED8imqDOP9u+XhkHqggq1ZmPQIyafcDA7gifSmG1TFegYoLbgENkx9PtM+i26mN3AE2nMDqln6JCICi5mG/yrvEABfwxyKK9QI1qzBzZ+g44QxvdKa3YNt0295GKW5zT+QAln45bJrM3shGoktLtiw3foCE2jphlH/soO5YSW/dRv1JmBJ5rTSEO5skn4c/DPrzwyloIneDqZWygllsiN1vEmZSI37PX/fv8Avexpt7XmHukAAAAASUVORK5CYII=' alt='')
+          .widget-nav__text Скачать распиание тренировок
+    block

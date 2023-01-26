@@ -1,0 +1,23 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'banner-img-benefits'
+    const pageTitle = 'Баннер'
+    const headerMod = 'header--absolute'
+
+block styles
+  link(rel='stylesheet' href='assets/css/blocks/banner.css')
+  link(rel='stylesheet' href='assets/css/blocks/widget-video.css')
+
+block content
+  main.main.main--pt0
+    +banner('--img-cards')
+    +popup('--p-xs')#consultation
+      +free-consultation
+    +popup#leave
+      +popup-form('Уже уходите?', 'Оставьте заявку и&nbsp;получите тренировку в&nbsp;подарок', 'assets/img/contact-from_leave.png')
+        +contact-form('popup-form, --popup', 'leave', 'Где удобно с вами связаться?')
+
+block widgets
+  +widget-video('--vertical')

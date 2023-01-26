@@ -1,0 +1,21 @@
+mixin ui-input(id, mods, type)
+  -
+    const baseName = 'ui-input'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  if type === 'file'
+    .ui-input.ui-input--file(class=allMods)
+      input(id=id type='file')&attributes(attributes)
+      label(for=id)
+        .ui-input__filename Файл не выбран
+        .ui-input__add Добавить
+  else
+    .ui-input(class=allMods)
+      input(id=id type=(typeof(type) !== 'undefined' && type ? type : 'text'))&attributes(attributes)

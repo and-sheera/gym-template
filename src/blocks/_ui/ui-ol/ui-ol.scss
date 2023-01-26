@@ -1,0 +1,65 @@
+.ui-ol {
+  padding: 0;
+  counter-reset: itemOl;
+  list-style-type: none;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  @include media-laptop {
+    font-size: 18px;
+  }
+  @include media-tablet {
+    font-size: 14px;
+  }
+  > li {
+    counter-increment: itemOl;
+    &::before {
+      content: counters(itemOl, '.') '. ';
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include media-tablet {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  &--lvl2 {
+    font-weight: 600;
+    > li {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+      > .ui-ol {
+        margin-top: 15px;
+        @include media-tablet {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  &--lvl1 {
+    font-size: 30px;
+    font-weight: 600;
+    @include media-laptop {
+      font-size: 24px;
+    }
+    @include media-tablet {
+      font-size: 18px;
+    }
+    > li {
+      &:not(:last-child) {
+        margin-bottom: 40px;
+        @include media-tablet {
+          margin-bottom: 20px;
+        }
+      }
+      > .ui-ol {
+        margin-top: 20px;
+        @include media-tablet {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,166 @@
+.contact-form {
+  &__label {
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 0.03em;
+    @include media-laptop {
+      font-size: 24px;
+    }
+    @include media-tablet {
+      font-size: 18px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 30px;
+      @include media-laptop {
+        margin-bottom: 20px;
+      }
+      @include media-tablet {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  &__radios {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    @include media-tablet {
+      gap: 8px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  &__radio {
+    input {
+      display: none;
+      &:checked ~ label {
+        padding-right: 15px;
+        padding-left: 5px;
+        background: #fff;
+        font-size: 16px;
+        @include media-laptop {
+          padding-right: 12px;
+          font-size: 14px;
+        }
+        @include media-tablet {
+          padding-right: 7px;
+          padding-left: 2px;
+          font-size: 10px;
+        }
+      }
+    }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-radius: 75px;
+      font-weight: 500;
+      font-size: 0;
+      transition: 0.3s;
+      cursor: pointer;
+      @include media-tablet {
+        gap: 5px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+      }
+    }
+    &-icon {
+      width: 75px;
+      height: 75px;
+      flex-shrink: 0;
+      @include media-laptop {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  &__ui-button {
+    width: 100%;
+    margin-top: 20px;
+    @include media-tablet {
+      margin-top: 10px;
+    }
+  }
+  &__ui-checkbox {
+    margin-top: 12px;
+  }
+  &--popup {
+    .contact-form {
+      &__label {
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: unset;
+        @include media-laptop {
+          font-size: 16px;
+        }
+        @include media-tablet {
+          font-size: 10px;
+        }
+        &:not(:last-child) {
+          margin-bottom: 25px;
+          @include media-laptop {
+            margin-bottom: 20px;
+          }
+          @include media-tablet {
+            margin-bottom: 12px;
+          }
+        }
+      }
+      &__radios {
+        gap: 10px;
+        @include media-tablet {
+          gap: 5px;
+        }
+        &:not(:last-child) {
+          margin-bottom: 35px;
+          @include media-tablet {
+            margin-bottom: 20px;
+          }
+        }
+      }
+      &__radio {
+        input {
+          &:checked ~ label {
+            padding-right: 10px;
+            padding-left: 3px;
+            font-size: 14px;
+            @include media-tablet {
+              padding-right: 7px;
+              padding-left: 2px;
+              font-size: 10px;
+            }
+          }
+        }
+        label {
+          padding-top: 3px;
+          padding-bottom: 3px;
+          gap: 5px;
+          @include media-tablet {
+            padding-top: 2px;
+            padding-bottom: 2px;
+          }
+        }
+        &-icon {
+          width: 50px;
+          height: 50px;
+          @include media-laptop {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+      &__ui-button {
+        margin-top: 12px;
+        @include media-tablet {
+          font-size: 10px;
+        }
+      }
+      &__ui-checkbox {
+        width: fit-content;
+        margin: 22px auto 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+mixin quiz(mods)
+  -
+    const baseName = 'quiz'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  form.quiz(class=allMods action='#')&attributes(attributes)
+    +quiz-prize
+    .quiz__container
+      .quiz__progress
+        .quiz__progress-val
+        span.quiz__progress-text
+          span.quiz__progress-grey Расчет
+          |  пройден на
+          =' '
+          span.quiz__progress-num 0
+          | %
+      +quiz-item('1', 'Какое направление вас интересует?').active
+        +quiz-item__body
+          +quiz-item__grid('--4col')
+            +ui-choose('individual-training', 'Индивидуальные тренировки', 'assets/img/quiz-radio_1.webp')(name='orientation' type='radio')
+            +ui-choose('fitness', 'Фитнес', 'assets/img/quiz-radio_2.webp')(name='orientation' type='radio')
+            +ui-choose('cross-fit', 'Кросс фит', 'assets/img/quiz-radio_3.webp')(name='orientation' type='radio')
+            +ui-choose('gym', 'Тренажерный зал', 'assets/img/quiz-radio_4.webp')(name='orientation' type='radio')
+            +ui-choose('swimming-pool', 'Бассейн', 'assets/img/quiz-radio_5.webp')(name='orientation' type='radio')
+            +ui-choose('yoga', 'Йога', 'assets/img/quiz-radio_6.webp')(name='orientation' type='radio')
+            +ui-choose('martial-arts', 'Боевые искусства', 'assets/img/quiz-radio_7.webp')(name='orientation' type='radio')
+      +quiz-item('1.2', 'Какое направление вас интересует? (несколько вариантов)')
+        +quiz-item__body
+          +quiz-item__grid('--4col')
+            +ui-choose('individual-training2', 'Индивидуальные тренировки', 'assets/img/quiz-radio_1.webp')(type='checkbox')
+            +ui-choose('fitness2', 'Фитнес', 'assets/img/quiz-radio_2.webp')(type='checkbox')
+            +ui-choose('cross-fit2', 'Кросс фит', 'assets/img/quiz-radio_3.webp')(type='checkbox')
+            +ui-choose('gym2', 'Тренажерный зал', 'assets/img/quiz-radio_4.webp')(type='checkbox')
+            +ui-choose('swimming-pool2', 'Бассейн', 'assets/img/quiz-radio_5.webp')(type='checkbox')
+            +ui-choose('yoga2', 'Йога', 'assets/img/quiz-radio_6.webp')(type='checkbox')
+            +ui-choose('martial-arts2', 'Боевые искусства', 'assets/img/quiz-radio_7.webp')(type='checkbox')
+      +quiz-item('2', 'Какую цель вы&nbsp;преследуете от&nbsp;тренировок? ')
+        +quiz-item__body
+          +quiz-item__grid
+            +ui-choose('lose-weight', 'Похудеть')(name='target' type='radio')
+            +ui-choose('gain-weight', 'Набрать вес')(name='target' type='radio')
+            +ui-choose('rehabilitation', 'Общее оздоровление')(name='target' type='radio')
+            +ui-choose('self-defense', 'Обучиться самообороне')(name='target' type='radio')
+      +quiz-item('2.2', 'Какую цель вы&nbsp;преследуете от&nbsp;тренировок? (несколько вариантов)')
+        +quiz-item__body
+          +quiz-item__grid
+            +ui-choose('lose-weight2', 'Похудеть')(type='checkbox')
+            +ui-choose('gain-weight2', 'Набрать вес')(type='checkbox')
+            +ui-choose('rehabilitation2', 'Общее оздоровление')(type='checkbox')
+            +ui-choose('self-defense2', 'Обучиться самообороне')(type='checkbox')
+      +quiz-item('3', 'Сколько тренировок в неделю вы хотите посещать?')
+        +quiz-item__body('--max-w380, --centered')
+          +quiz-item__label('Укажите количество дней')
+          +ui-input('workout-days')(placeholder='3  дня')
+          +ui-checkbox('difficult-to-answer-workout-days', 'Затрудняюсь ответить', 'quiz-item')(data-quiz-difficult-checkbox)
+      +quiz-item('4', 'Загрузите файл:')
+        +quiz-item__body('--max-w555, --centered')
+          +quiz-item__label('Можете прикрепить файл в&nbsp;любом формате', '--mb30')
+          +ui-input('file', '', 'file')
+          +ui-checkbox('difficult-to-answer-file', 'Затрудняюсь ответить', 'quiz-item')(data-quiz-difficult-checkbox)
+      .quiz__actions
+        +ui-button('Назад', 'quiz, --back, --hidden')(data-quiz-back type='button')
+        +ui-button('Далее', 'quiz, --next, --disabled')(data-quiz-next type='button')
+          .ui-button__hint Выберите один вариант ответа и&nbsp;нажмите на&nbsp;кнопку &laquo;Далее&raquo;
+      +quiz-passed
+    block

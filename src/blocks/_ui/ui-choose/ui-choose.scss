@@ -1,0 +1,153 @@
+.ui-choose {
+  input {
+    display: none;
+    &:checked ~ label {
+      border-color: $accent;
+      &::before {
+        background: $accent;
+      }
+      &::after {
+        filter: brightness(200%);
+      }
+    }
+  }
+  label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 20px 20px 20px 65px;
+    font-size: 24px;
+    line-height: 1.2;
+    color: $lightBlack;
+    background: #fff;
+    border: 1px solid #d3d5d4;
+    border-radius: 5px 0 0 5px;
+    transition: 0.3s;
+    cursor: pointer;
+    @include media-laptop {
+      font-size: 18px;
+    }
+    @include media-tablet {
+      padding: 18px 18px 18px 50px;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+    @include media-hover {
+      box-shadow: 0 4px 15px rgb(78 78 78 / 0.55);
+    }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: inherit;
+    }
+    &::before {
+      left: 20px;
+      width: 30px;
+      height: 30px;
+      background: #f5f7f6;
+      border-radius: 50%;
+      @include media-tablet {
+        left: 9px;
+      }
+    }
+    &::after {
+      left: 28px;
+      width: 13px;
+      height: 13px;
+      background-image: url("data:image/svg+xml,%3Csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.1717 1.79221C11.0883 1.73709 10.9951 1.69924 10.8974 1.68082C10.7997 1.66241 10.6994 1.66379 10.6022 1.68489C10.505 1.70599 10.4129 1.74639 10.331 1.80379C10.2492 1.86119 10.1792 1.93446 10.1251 2.01942L5.88503 8.67918L3.8172 6.73094C3.74424 6.6622 3.65871 6.60878 3.56549 6.57372C3.47228 6.53866 3.3732 6.52266 3.27391 6.52662C3.07339 6.53462 2.8842 6.62346 2.74796 6.7736C2.61173 6.92374 2.5396 7.12288 2.54746 7.3272C2.55531 7.53153 2.64249 7.72431 2.78984 7.86313L5.50491 10.421C5.50491 10.421 5.58285 10.4894 5.61892 10.5133C5.70228 10.5685 5.7955 10.6064 5.89323 10.6248C5.99097 10.6432 6.09131 10.6419 6.18853 10.6208C6.28574 10.5997 6.37792 10.5592 6.4598 10.5018C6.54168 10.4444 6.61165 10.3711 6.66571 10.2861L11.3946 2.8586C11.4487 2.77367 11.4859 2.67871 11.504 2.57915C11.522 2.47958 11.5207 2.37737 11.5 2.27834C11.4793 2.17931 11.4396 2.0854 11.3833 2.00199C11.3269 1.91858 11.255 1.8473 11.1717 1.79221Z' fill='%23DEE0DF'/%3E%3C/svg%3E%0A");
+      background-size: contain;
+      background-repeat: no-repeat;
+      @include media-tablet {
+        left: 17px;
+      }
+    }
+    &:hover {
+      &::before {
+        color: var(--bvi-contrast-color, $orange);
+      }
+    }
+  }
+  &--img {
+    input {
+      &:checked ~ label {
+        .ui-choose__img {
+          border-color: $accent;
+        }
+      }
+    }
+    label {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: auto auto 1fr;
+      align-items: stretch;
+      gap: 5px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      text-align: center;
+      @include media-tablet {
+        font-size: 14px;
+      }
+      @include media-hover {
+        box-shadow: none;
+        &::before,
+        .ui-choose__img {
+          filter: drop-shadow(0 4px 15px rgb(78 78 78 / 0.55));
+        }
+      }
+      &::before,
+      &::after {
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transform: none;
+        grid-row: 2/3;
+        grid-column: 1/-1;
+        align-self: center;
+        justify-self: center;
+      }
+      &::before {
+        width: 36px;
+        height: 36px;
+        border: 4px solid #fff;
+        @include media-tablet {
+          width: 20px;
+          height: 20px;
+          border-width: 3px;
+        }
+      }
+      &::after {
+        @include media-tablet {
+          width: 9px;
+          height: 9px;
+        }
+      }
+      .ui-choose {
+        &__img {
+          position: relative;
+          padding-top: 59%;
+          margin-bottom: -18px;
+          border: 2px solid transparent;
+          order: -1;
+          transition: 0.3s;
+          @include media-tablet {
+            padding-top: 74%;
+          }
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}

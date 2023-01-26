@@ -1,0 +1,91 @@
+.widget-nav {
+  position: absolute;
+  top: 50vh;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1000;
+  max-width: 100px;
+  color: #fff;
+  overflow: hidden;
+  @include media-tablet {
+    top: 115px;
+    transform: none;
+    max-width: 65px;
+  }
+  &__button {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin: 0 auto -12px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='11' fill='white'/%3E%3Ccircle cx='11' cy='11' r='10' fill='%23AAFF3F'/%3E%3Cpath d='M13.3357 14.1163L11.1809 11.8416L9.01455 14.1042C8.89964 14.2243 8.74403 14.2914 8.58195 14.291C8.41988 14.2905 8.26461 14.2225 8.15031 14.1018C8.03601 13.9812 7.97204 13.8178 7.97247 13.6476C7.9729 13.4774 8.03769 13.3144 8.1526 13.1944L10.3189 10.9318L8.16407 8.65713C8.04976 8.53648 7.98579 8.37309 7.98622 8.20291C7.98665 8.03273 8.05145 7.8697 8.16636 7.74968C8.28127 7.62967 8.43688 7.5625 8.59895 7.56295C8.76103 7.5634 8.9163 7.63144 9.0306 7.75209L11.1855 10.0267L13.3518 7.76413C13.4667 7.64411 13.6223 7.57694 13.7844 7.57739C13.9465 7.57784 14.1017 7.64588 14.216 7.76653C14.3303 7.88719 14.3943 8.05058 14.3939 8.22076C14.3934 8.39094 14.3286 8.55397 14.2137 8.67398L12.0474 10.9366L14.2023 13.2112C14.3166 13.3319 14.3805 13.4953 14.3801 13.6655C14.3797 13.8356 14.3149 13.9987 14.2 14.1187C14.0851 14.2387 13.9295 14.3059 13.7674 14.3054C13.6053 14.305 13.45 14.2369 13.3357 14.1163Z' fill='white'/%3E%3C/svg%3E%0A");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: rotate(45deg);
+    transition: 0.3s;
+    cursor: pointer;
+    @include media-tablet {
+      width: 19px;
+      height: 19px;
+      margin-bottom: -9px;
+    }
+  }
+  &__body {
+    padding-top: 24px;
+    background: rgb(170 255 63 / 0.48);
+    border-radius: 15px 0 0 15px;
+    transform: translateX(100%);
+    transition: 0.3s;
+    @include media-tablet {
+      padding-top: 13px;
+    }
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+    @include media-tablet {
+      font-size: 6px;
+    }
+  }
+  &__item {
+    display: block;
+    padding: 16px 5px 10px;
+    @include media-tablet {
+      padding: 7px 5px 5px;
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid #101318;
+      @include media-tablet {
+        border-bottom-color: #fff;
+      }
+    }
+  }
+  &__icon {
+    width: 27px;
+    height: 27px;
+    margin: 0 auto 7px;
+    @include media-tablet {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 3px;
+    }
+  }
+  &.active {
+    .widget-nav {
+      &__button {
+        transform: rotate(0);
+      }
+      &__body {
+        transform: translateX(0);
+      }
+    }
+  }
+}

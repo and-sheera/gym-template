@@ -1,0 +1,30 @@
+mixin lucky-wheel(mods)
+  -
+    const baseName = 'lucky-wheel'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .lucky-wheel(class=allMods)&attributes(attributes)
+    .lucky-wheel__wrapper
+      //- canvas.lucky-wheel__canvas
+    form.lucky-wheel__form(action='#')
+      .lucky-wheel__radios(hidden)
+        -for(let i=0; i<6; i++)
+          label(for=`prize${i+1}`) Подарок !{i+1}
+          input(id=`prize${i+1}` type='radio' name='lucky-wheel')
+      .lucky-wheel__title Испытайте
+        =' '
+        b удачу
+      .lucky-wheel__descr Оставьте свой номер телефона, вращайте колесо и&nbsp;выйграйте подарки от&nbsp;нас
+      +ui-input('lucky-wheel-tel', 'lucky-wheel, --popup')(placeholder='Ваш телефон в WhatsApp')
+      +ui-button('Вращать колесо', 'lucky-wheel')(type='submit' data-spin-wheel)
+      +ui-checkbox('lucky-wheel-policy-agreement', 'Ознакомлен с ', 'lucky-wheel, --fz10, --grey')
+        =' '
+        a(href='#') политикой конфиденциальности
+    block

@@ -1,0 +1,31 @@
+mixin quiz-prize(mods)
+  -
+    const baseName = 'quiz-prize'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .quiz-prize(class=allMods)&attributes(attributes)
+    .quiz-prize__conatiner
+      h3.quiz-prize__title(data-finish-text='Вы сейчас получите:') В&nbsp;конце теста вы&nbsp;получите:
+      .quiz-prize__wrapper
+        .quiz-prize__item
+          .quiz-prize__img
+            img(src='assets/img/quiz-prize_1.webp' alt='')
+          .quiz-prize__name Бесплатная тренировка
+        .quiz-prize__item
+          .quiz-prize__img
+            img(src='assets/img/quiz-prize_2.webp' alt='')
+          .quiz-prize__name Консультация с&nbsp;тренером
+    .quiz-prize__coach
+      .quiz-prize__ava: img(src='assets/img/quiz-prize_ava.webp' alt='')
+      .quiz-prize__info
+        .quiz-prize__coach-name Сергей Лавров
+        .quiz-prize__job Главный тренер
+      .quiz-prize__online Онлайн
+    block

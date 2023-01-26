@@ -1,0 +1,20 @@
+extends layouts/layout
+
+block variables
+  -const pageTitle = 'Index'
+
+block content
+  main.main
+    .inner
+      +ui-h2(pageTitle)
+      br
+      br
+      a(href='blocks.html') Repository blocks (Buttons)
+      br
+      a(href='main.html') Main
+      br
+      a(href='banner-img-benefits.html') Banner img benefits + vertical video widget
+      br
+      a(href='form-thx.html') Form-thx
+      br
+      a(href='policy.html') Policy

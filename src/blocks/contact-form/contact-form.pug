@@ -1,0 +1,70 @@
+mixin contact-form(mods = '', preID = '', label)
+  -
+    const baseName = 'contact-form'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const radios = [
+      {
+        name: 'WhatsApp',
+        id: 'wa',
+        icon: 'assets/img/contact-form_wa.svg',
+        placeholder: 'Ваш телефон в WhatsApp'
+      },
+      {
+        name: 'Telegram',
+        id: 'tg',
+        icon: 'assets/img/contact-form_tg.svg',
+        placeholder: 'Ваш телефон в Telegram'
+      },
+      {
+        name: 'Телефон',
+        id: 'call',
+        icon: 'assets/img/contact-form_tel.svg',
+        placeholder: 'Ваш телефон'
+      },
+    ]
+
+  if mods.includes('--popup')
+    form.contact-form(class=allMods action='#')&attributes(attributes)
+      .contact-form__label !{label}
+      .contact-form__radios
+        each radio, index in radios
+          .contact-form__radio
+            if index === 0
+              input(id=preID+radio.id value=preID+radio.id type='radio' data-input-placeholder=radio.placeholder name=preID+'communication-options' checked)
+            else
+              input(id=preID+radio.id value=preID+radio.id type='radio' data-input-placeholder=radio.placeholder name=preID+'communication-options')
+            label(for=preID+radio.id)
+              .contact-form__radio-icon: img(src=radio.icon alt='')
+              .contact-form__radio-name !{radio.name}
+      +ui-input(preID+'tel', 'contact-form, --popup')(placeholder='Ваш телефон в WhatsApp')
+      +ui-button('Скачать сейчас', 'contact-form, --white')(type='submit')
+      +ui-checkbox(preID+'policy-agreement', 'Ознакомлен с ', 'contact-form, --xs, --black')
+        =' '
+        a(href='#') политикой конфиденциальности
+  else
+    .contact-form(class=allMods)&attributes(attributes)
+      .contact-form__label Где удобно связаться с&nbsp;вами, чтобы прислать расчет и&nbsp;бонусы?
+      .contact-form__radios
+        each radio, index in radios
+          .contact-form__radio
+            if index === 0
+              input(id=preID+radio.id value=preID+radio.id type='radio' data-input-placeholder=radio.placeholder name=preID+'communication-options' checked)
+            else
+              input(id=preID+radio.id value=preID+radio.id type='radio' data-input-placeholder=radio.placeholder name=preID+'communication-options')
+            label(for=preID+radio.id)
+              .contact-form__radio-icon: img(src=radio.icon alt='')
+              .contact-form__radio-name !{radio.name}
+      +ui-input('tel', 'contact-form')(placeholder='Ваш телефон в WhatsApp')
+      +ui-button('Получить расчет <span class="ui-button__label">+ БОНУСЫ </span>', 'contact-form, --white')(type='submit')
+      +ui-checkbox(preID+'policy-agreement', 'Ознакомлен с ', 'contact-form, --m-fz10, --black')
+        =' '
+        a(href='#') политикой конфиденциальности
+    block

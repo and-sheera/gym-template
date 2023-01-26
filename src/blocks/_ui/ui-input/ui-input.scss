@@ -1,0 +1,81 @@
+.ui-input {
+  position: relative;
+  input {
+    width: 100%;
+    padding: 26px 15px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    color: $black;
+    background: #fff;
+    border: 1px solid #d3d5d4;
+    border-radius: 0;
+    outline: none;
+    transition: 0.3s;
+    @include media-laptop {
+      padding: 20px 15px;
+    }
+    @include media-tablet {
+      padding: 12px;
+      font-size: 12px;
+    }
+    &::placeholder {
+      font-weight: 300;
+      color: #727272;
+    }
+    &:focus {
+      border-color: $accent;
+    }
+  }
+  &--file {
+    input {
+      display: none;
+    }
+    label {
+      display: flex;
+      cursor: pointer;
+    }
+    .ui-input {
+      &__filename {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        padding: 15px;
+        background: #fff;
+        border: 1px solid #d3d5d4;
+        border-right-width: 0;
+        font-weight: 500;
+        font-size: 14px;
+        @include media-tablet {
+          padding: 13px 12px;
+          font-size: 12px;
+        }
+      }
+      &__add {
+        padding: 25px 40px;
+        background: $accent;
+        font-size: 16px;
+        @include media-laptop {
+          font-size: 14px;
+        }
+        @include media-tablet {
+          padding: 13px 12px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  &--popup {
+    input {
+      padding: 24px 27px;
+      border-color: transparent;
+      @include media-tablet {
+        padding: 12px 15px;
+        font-size: 10px;
+      }
+      &:focus {
+        border-color: $accent;
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+block variables
+include ../blocks/mixins
+
+doctype html
+html(lang='ru')
+  block head
+    head
+      meta(charset='utf-8')
+      title=pageTitle
+      meta(content='width=device-width, initial-scale=1' name='viewport')
+      meta(content='ie=edge' http-equiv='x-ua-compatible')
+      link(rel='stylesheet' href='assets/libs/plyr/plyr.css')
+      link(rel='stylesheet' href='assets/css/style.css')
+      link(rel='stylesheet' href='assets/css/blocks/header.css')
+      link(rel='stylesheet' href='assets/css/blocks/footer.css')
+      link(rel='stylesheet' href='assets/css/blocks/contact-form.css')
+      link(rel='stylesheet' href='assets/css/blocks/popup.css')
+      link(rel='stylesheet' href='assets/css/blocks/free-consultation.css')
+      block styles
+  body.transition-disabled
+    .wrapper
+      if !onlyMain
+        block header
+          include ../blocks/header/header
+      block content
+      if !onlyMain
+        block footer
+          include ../blocks/footer/footer
+      block widgets
+    block scripts
+      script(src='assets/libs/jquery/jquery-3.6.0.min.js')
+      script(src='assets/libs/plyr/plyr.js')
+      script(src='assets/libs/spin-wheel/spin-wheel.js')
+      script(src='assets/js/index.js')

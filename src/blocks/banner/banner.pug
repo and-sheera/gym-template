@@ -1,0 +1,85 @@
+mixin banner(mods = '')
+  -
+    const baseName = 'banner'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const benefits = [
+      {
+        name: 'Тренажерный <br> зал'
+      },
+      {
+        name: 'Спортивный <br> бассейн'
+      },
+      {
+        name: 'Тренировки <br> по&nbsp;боксу'
+      },
+      {
+        name: 'Индивидуальные <br> тренировки'
+      }
+    ]
+
+    const cards = [
+      {
+        img: 'assets/img/banner-card_1.webp',
+        name: 'Индивидуальные тренировки'
+      },
+      {
+        img: 'assets/img/banner-card_2.webp',
+        name: 'Боевые искусства'
+      },
+      {
+        img: 'assets/img/banner-card_3.webp',
+        name: 'Спортивный бассейн'
+      },
+      {
+        img: 'assets/img/banner-card_4.webp',
+        name: 'Тренажерный зал'
+      },
+    ]
+
+  .banner(class=allMods)&attributes(attributes)
+    .banner__bg: img(src='assets/img/banner-bg.png' alt='')
+    .inner
+      if mods.includes('--thx')
+        .banner__tag Данные успешно отправлены!
+        h1.banner__title Мы скоро свяжемся с&nbsp;вами для обсуждения всех деталей!
+        .banner__images
+          .banner__img: img(src='assets/img/banner-img.png' alt='')
+        .banner__foot
+          +ui-button('На главную', 'banner, --xl, --glare')(href='/')
+      else
+        .banner__tag Скидки на годовой абонемент!
+        h1.banner__title В&nbsp;честь открытия нового филиала
+          =' '
+          b дарим 150 дней
+          |  в&nbsp;подарок!
+        .banner__descr Современный тренажерный зал в&nbsp;самом центре города.
+        if !mods.includes('--img-cards')
+          .banner__benefits
+            each item, index in  benefits
+              .banner__benefit
+                .banner__benefit-icon
+                  img(src=`assets/img/banner-benefit_${index+1}.svg` alt='')
+                .banner__benefit-name !{item.name}
+        .banner__images
+          if mods.includes('--img-cards')
+            .banner__cards
+              each card in cards
+                .banner__card
+                  button.banner__card-btn
+                  .banner__card-wrapp
+                    .banner__card-img: img(src=card.img alt='')
+                    .banner__card-name !{card.name}
+          .banner__img: img(src='assets/img/banner-img.png' alt='')
+        .banner__foot
+          +ui-button('<span>Получить предложение</span>', 'banner, --xl, --glare')
+          a.banner__connect(href='#') спросить в&nbsp;whatsapp
+            .banner__connect-icon: img(src='assets/img/icon_wa.svg' alt='')
+    block

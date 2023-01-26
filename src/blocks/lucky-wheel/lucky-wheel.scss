@@ -1,0 +1,124 @@
+.lucky-wheel {
+  max-width: 100%;
+  width: 855px;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  color: #fff;
+  text-align: center;
+  @include media-laptop {
+    flex-direction: column;
+    gap: 55px;
+  }
+  &__wrapper {
+    position: relative;
+    width: 412px;
+    height: 412px;
+    flex-shrink: 0;
+    @include media-tablet {
+      width: 235px;
+      height: 235px;
+    }
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      z-index: 1;
+    }
+    &::after {
+      right: 50%;
+      transform: translate(50%, -50%);
+      width: 27px;
+      height: 27px;
+      background-image: url("data:image/svg+xml,%3Csvg width='27' height='26' viewBox='0 0 27 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='13.5055' cy='13' rx='13.0954' ry='13' fill='black'/%3E%3Cellipse cx='13.504' cy='13' rx='8.05868' ry='8' fill='white'/%3E%3C/svg%3E%0A");
+      background-size: contain;
+      background-repeat: no-repeat;
+      @include media-tablet {
+        width: 15px;
+        height: 15px;
+      }
+    }
+    &::before {
+      right: -30px;
+      transform: translateY(-50%);
+      width: 74px;
+      height: 39px;
+      background-image: url("data:image/svg+xml,%3Csvg width='74' height='39' viewBox='0 0 74 39' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M38.5 0H74V39H38.5L0 19.5L38.5 0Z' fill='%23AAFF3F'/%3E%3Cpath d='M9.29395 19.5L39.2294 5H70V34H39.2294L9.29395 19.5Z' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A");
+      background-size: contain;
+      background-repeat: no-repeat;
+      @include media-tablet {
+        width: 56px;
+        height: 30px;
+      }
+    }
+  }
+  &__dot {
+    position: absolute;
+    top: calc(50% - 3px);
+    left: calc(50% - 3px);
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    will-change: transform;
+    @include media-tablet {
+      top: calc(50% - 2px);
+      left: calc(50% - 2px);
+      width: 4px;
+      height: 4px;
+    }
+  }
+  &__canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__title {
+    margin-bottom: 15px;
+    font: 700 40px/1.2 $bebas;
+    text-transform: uppercase;
+    @include media-laptop {
+      font-size: 35px;
+    }
+    @include media-tablet {
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+    b {
+      color: $accent;
+    }
+  }
+  &__descr {
+    margin-bottom: 30px;
+    font-size: 16px;
+    letter-spacing: 0.015em;
+    @include media-tablet {
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+  }
+  &__ui-input {
+    margin-bottom: 12px;
+  }
+  &__ui-button {
+    width: 100%;
+    padding: 22px;
+    font-weight: 600;
+    font-size: 18px;
+    @include media-tablet {
+      padding: 11px;
+      font-size: 13px;
+    }
+  }
+  &__ui-checkbox {
+    width: fit-content;
+    margin: 22px auto 0;
+    @include media-tablet {
+      margin-top: 12px;
+    }
+  }
+}

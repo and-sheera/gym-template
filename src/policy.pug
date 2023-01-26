@@ -1,0 +1,19 @@
+extends layouts/layout
+
+block variables
+  -const pageName = 'policy'
+  -const pageTitle = 'Политика'
+
+block styles
+  link(rel='stylesheet' href='assets/css/blocks/policy.css')
+
+block content
+  main.main
+    .inner
+      +section
+        +policy
+    +popup('--p-xs')#consultation
+      +free-consultation
+    +popup#leave
+      +popup-form('Уже уходите?', 'Оставьте заявку и&nbsp;получите тренировку в&nbsp;подарок', 'assets/img/contact-from_leave.png')
+        +contact-form('popup-form, --popup', 'leave', 'Где удобно с вами связаться?')

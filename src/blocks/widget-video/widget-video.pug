@@ -1,0 +1,18 @@
+mixin widget-video(mods)
+  -
+    const baseName = 'widget-video'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .widget-video(class=allMods)&attributes(attributes)
+    .widget-video__text Нажмите
+    button.widget-video__close-btn
+    .widget-video__container
+      iframe(src='https://www.youtube.com/embed/bTqVqk7FSmY?iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0' allowfullscreen allowtransparency allow='autoplay')
+    block

@@ -1,0 +1,11 @@
+.section {
+  &:not(:first-child) {
+    margin-top: 120px;
+    @include media-laptop {
+      margin-top: 80px;
+    }
+    @include media-tablet {
+      margin-top: 50px;
+    }
+  }
+}

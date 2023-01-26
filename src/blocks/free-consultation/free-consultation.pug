@@ -1,0 +1,38 @@
+mixin free-consultation(mods)
+  -
+    const baseName = 'free-consultation'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .free-consultation(class=allMods)&attributes(attributes)
+    .free-consultation__title Бесплатная консультация
+    .free-consultation__wrapper
+      .free-consultation__list
+        .free-consultation__list-label На консультации:
+        +ui-ul
+          li Задам пару уточняющих вопросов
+          li Подберем несколько проектов
+          li Рассчитаю стоимость
+          li Расскажу этапы предстоящей работы
+          li Если все понравится, согласуем время и&nbsp;место встречи для составления полной сметы
+      .free-consultation__contact
+        .free-consultation__coach
+          .free-consultation__coach-ava: img(src='assets/img/quiz-prize_ava.webp' alt='')
+          .free-consultation__coach-info
+            .free-consultation__coach-name Сергей Лавров
+            .free-consultation__coach-job Главный тренер
+        form.free-consultation__form
+          .free-consultation__form-label Оставьте заявку на консультацию
+          +ui-input('consultation-tel', 'free-consultation, --popup')(placeholder='Ваш телефон')
+          +ui-input('consultation-name', 'free-consultation, --popup')(placeholder='Ваше имя')
+          +ui-button('Жду звонка', 'free-consultation, --white')(type='submit')
+          +ui-checkbox('consultation-policy-agreement', 'Ознакомлен с ', 'free-consultation, --xs, --black')
+            =' '
+            a(href='#') политикой конфиденциальности
+    block

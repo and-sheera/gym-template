@@ -1,0 +1,37 @@
+.policy {
+  color: $lightBlack;
+  &__title,
+  &__descr {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+      @include media-laptop {
+        margin-bottom: 30px;
+      }
+      @include media-tablet {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  &__title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: 0.02em;
+    @include media-laptop {
+      font-size: 30px;
+    }
+    @include media-tablet {
+      font-size: 20px;
+    }
+  }
+  &__descr {
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    @include media-laptop {
+      font-size: 16px;
+    }
+    @include media-tablet {
+      font-size: 14px;
+    }
+  }
+}

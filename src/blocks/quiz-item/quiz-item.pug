@@ -1,0 +1,62 @@
+mixin quiz-item(num, title, mods)
+  -
+    const baseName = 'quiz-item'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .quiz-item(class=allMods)&attributes(attributes)
+    .quiz-item__head
+      .quiz-item__num Вопрос !{num}
+      .quiz-item__title !{title}
+    block
+
+mixin quiz-item__body(mods)
+  -
+    const baseName = 'quiz-item__body'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .quiz-item__body(class=allMods)&attributes(attributes)
+    block
+
+mixin quiz-item__grid(mods)
+  -
+    const baseName = 'quiz-item__grid'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .quiz-item__grid(class=allMods)&attributes(attributes)
+    block
+
+mixin quiz-item__label(text, mods)
+  -
+    const baseName = 'quiz-item__label'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .quiz-item__label(class=allMods)&attributes(attributes) !{text}
+    block

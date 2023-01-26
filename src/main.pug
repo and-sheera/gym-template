@@ -1,0 +1,40 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'main'
+    const pageTitle = 'Главная'
+    const headerMod = 'header--absolute'
+
+block styles
+  link(rel='stylesheet' href='assets/css/blocks/banner.css')
+  link(rel='stylesheet' href='assets/css/blocks/quiz.css')
+  link(rel='stylesheet' href='assets/css/blocks/widget-nav.css')
+  link(rel='stylesheet' href='assets/css/blocks/widget-call.css')
+  link(rel='stylesheet' href='assets/css/blocks/widget-video.css')
+  link(rel='stylesheet' href='assets/css/blocks/widget-gift.css')
+  link(rel='stylesheet' href='assets/css/blocks/lucky-wheel.css')
+
+block content
+  main.main.main--pt0
+    +banner
+    +section#first-training
+      .inner
+        +ui-h2('ответьте на 3 вопроса И РАССЧИТАЙТЕ СТОИМОСТЬ ЗА 45 СЕКУНД', '--mb, --max-w, --center')
+        +quiz
+    +popup#download-schedule
+      +popup-form('Скачайте сейчас', 'Расписание тренировок на&nbsp;2023 год', 'assets/img/contact-from_catalog.png')
+        +contact-form('popup-form, --popup', 'download-schedule', 'Вам куда удобнее отправить?')
+    +popup('--p-xs')#consultation
+      +free-consultation
+    +popup('--lucky-wheel')#lucky-wheel.active
+      +lucky-wheel
+    +popup#leave
+      +popup-form('Уже уходите?', 'Оставьте заявку и&nbsp;получите тренировку в&nbsp;подарок', 'assets/img/contact-from_leave.png')
+        +contact-form('popup-form, --popup', 'leave', 'Где удобно с вами связаться?')
+
+block widgets
+  +widget-nav
+  +widget-call
+  +widget-video
+  +widget-gift

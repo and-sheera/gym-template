@@ -1,0 +1,17 @@
+mixin widget-gift(mods)
+  -
+    const baseName = 'widget-gift'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .widget-gift(class=allMods)&attributes(attributes)
+    button.widget-gift__button(onclick=onclick=`window.openPopup('lucky-wheel'); return false;`)
+      img(src='assets/img/widget-gift.png' alt='')
+    button.widget-gift__close-btn
+    block

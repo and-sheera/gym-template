@@ -1,0 +1,18 @@
+extends layouts/layout
+
+block variables
+  -const pageTitle = 'Repository blocks'
+
+block content
+  main.main
+    .inner
+      +ui-button('Получить предложение', '--xl, --glare')
+      br
+      br
+      +ui-button('Получить предложение', '--xl, --pulse')
+      br
+      br
+      +ui-button('Получить предложение', '--xl, --glare, --rounded')
+      br
+      br
+      +ui-button('Получить предложение', '--xl, --pulse, --rounded')
