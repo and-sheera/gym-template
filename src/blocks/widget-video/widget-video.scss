@@ -59,6 +59,9 @@
       border-radius: 10px;
     }
     &__control {
+      @include media-tablet {
+        padding: 3px;
+      }
       &--overlaid {
         width: 80px;
         height: 80px;
@@ -84,9 +87,25 @@
           display: none;
         }
       }
+      svg {
+        @include media-tablet {
+          width: 14px;
+          height: 14px;
+        }
+      }
     }
     &__poster {
       background-size: cover;
+    }
+    &__volume {
+      @include media-tablet {
+        display: none;
+      }
+    }
+    &__time {
+      @include media-tablet {
+        font-size: 10px;
+      }
     }
     &--stopped {
       .plyr__controls {

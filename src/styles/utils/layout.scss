@@ -1,3 +1,11 @@
+:root {
+  --accent: #aaff3f;
+  --accent-rgb: 170 255 63;
+  --accent90: #429d3d;
+  --accent80: #77a938;
+  --accent60: #c7fc86;
+  --accent40: #d5dba6;
+}
 *,
 *::before,
 *::after {
@@ -24,7 +32,6 @@ body {
   }
 }
 img {
-  display: block;
   max-width: 100%;
   max-height: 100%;
   image-rendering: -webkit-optimize-contrast;

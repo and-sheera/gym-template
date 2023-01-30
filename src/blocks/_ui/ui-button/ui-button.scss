@@ -137,6 +137,19 @@
           }
         }
       }
+      &:not(:hover) {
+        .ui-button__text {
+          &::before,
+          &::after {
+            --translate-x: 8px;
+
+            animation: arrow-translate 0.8s linear infinite alternate;
+            @include media-tablet {
+              --translate-x: 5px;
+            }
+          }
+        }
+      }
     }
     &::before {
       content: '';
@@ -282,6 +295,14 @@
   }
   100% {
     left: 110%;
+  }
+}
+@keyframes arrow-translate {
+  0% {
+    transform: translate(0, -50%);
+  }
+  100% {
+    transform: translate(var(--translate-x), -50%);
   }
 }
 

@@ -43,6 +43,11 @@
       animation: none;
     }
   }
+  &--mob-right {
+    @include media-tablet {
+      right: 35px;
+    }
+  }
   &.active {
     @include media-tablet {
       --translate-y: 0;

@@ -12,7 +12,9 @@ mixin lucky-wheel(mods)
 
   .lucky-wheel(class=allMods)&attributes(attributes)
     .lucky-wheel__wrapper
-      //- canvas.lucky-wheel__canvas
+      svg.lucky-wheel__pointer(width='74', height='39', viewbox='0 0 74 39', fill='none', xmlns='http://www.w3.org/2000/svg')
+        path(d='M38.5 0H74V39H38.5L0 19.5L38.5 0Z', fill='currentColor')
+        path(d='M9.29395 19.5L39.2294 5H70V34H39.2294L9.29395 19.5Z', stroke='white', stroke-width='2')
     form.lucky-wheel__form(action='#')
       .lucky-wheel__radios(hidden)
         -for(let i=0; i<6; i++)

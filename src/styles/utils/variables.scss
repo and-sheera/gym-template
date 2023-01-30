@@ -3,21 +3,14 @@ $font: 'Montserrat', 'Arial', sans-serif;
 $bebas: 'Bebas Neue', 'Arial', sans-serif;
 
 // colors
-:root {
-  --accent: #aaff3f;
-  --accent-rgb: 170 255 63;
-  --accent60: #c7fc86;
-  --accent40: #d5dba6;
-}
-
 $black: #101318;
 $lightBlack: #303030;
 $accent: var(--accent);
-$accentRgb: var(--accent);
+$accentRgb: var(--accent-rgb);
+$accent90: var(--accent90);
+$accent80: var(--accent80);
 $accent60: var(--accent60);
 $accent40: var(--accent40);
-$orange: #fe5000;
-$teal: #008080;
 
 // media
 $mediaWidthLaptop: 1610px;
