@@ -8,9 +8,11 @@
     padding: 35px 100px;
     background: #f9f9f9;
     border-radius: 20px;
+    @include media-desktop {
+      padding: get-vw(35px) get-vw(100px);
+    }
     @include media-laptop {
-      padding-right: 50px;
-      padding-left: 50px;
+      padding: 35px 50px;
     }
     @include media-tablet {
       padding: 30px 12px;
@@ -23,6 +25,10 @@
     text-align: center;
     font-size: 14px;
     letter-spacing: 0.055em;
+    @include media-desktop {
+      padding: get-vw(15px);
+      font-size: get-vw(14px);
+    }
     @include media-laptop {
       padding: 12px;
       font-size: 12px;
@@ -89,6 +95,9 @@
 .quiz-item {
   animation: fade-in 0.3s ease;
   margin-top: 55px;
+  @include media-desktop {
+    margin-top: get-vw(55px);
+  }
   @include media-laptop {
     margin-top: 35px;
   }
@@ -101,9 +110,14 @@
     justify-content: center;
     gap: 20px;
     margin-bottom: 65px;
+    @include media-desktop {
+      gap: get-vw(20px);
+      margin-bottom: get-vw(65px);
+    }
     @include media-laptop {
       flex-direction: column;
       margin-bottom: 45px;
+      gap: 20px;
     }
     @include media-tablet {
       gap: 18px;
@@ -117,6 +131,9 @@
     font-weight: 600;
     font-size: 16px;
     letter-spacing: -0.03em;
+    @include media-desktop {
+      font-size: get-vw(16px);
+    }
     @include media-laptop {
       font-size: 14px;
     }
@@ -128,6 +145,9 @@
     font-weight: 500;
     font-size: 32px;
     letter-spacing: 0.02em;
+    @include media-desktop {
+      font-size: get-vw(32px);
+    }
     @include media-laptop {
       font-size: 25px;
       text-align: center;
@@ -138,6 +158,9 @@
   }
   &__body {
     min-height: 535px;
+    @include media-desktop {
+      min-height: get-vw(535px);
+    }
     @include media-laptop {
       min-height: 400px;
     }
@@ -157,6 +180,12 @@
     &--max-w380 {
       max-width: 380px;
       margin: 0 auto;
+      @include media-desktop {
+        max-width: get-vw(380px);
+      }
+      @include media-laptop {
+        max-width: 380px;
+      }
       @include media-tablet {
         max-width: 220px;
       }
@@ -164,6 +193,9 @@
     &--max-w555 {
       max-width: 555px;
       margin: 0 auto;
+      @include media-desktop {
+        max-width: get-vw(555px);
+      }
       @include media-tablet {
         max-width: 265px;
       }
@@ -180,6 +212,9 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px 45px;
+    @include media-desktop {
+      gap: get-vw(20px) get-vw(45px);
+    }
     @include media-laptop {
       gap: 20px 25px;
     }
@@ -190,6 +225,9 @@
     &--4col {
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 50px 60px;
+      @include media-desktop {
+        gap: get-vw(50px) get-vw(60px);
+      }
       @include media-laptop {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 30px;
@@ -202,6 +240,9 @@
   }
   &__label {
     font-size: 24px;
+    @include media-desktop {
+      font-size: get-vw(24px);
+    }
     @include media-laptop {
       font-size: 20px;
     }
@@ -222,6 +263,12 @@
   }
   &__ui-checkbox {
     margin-top: 25px;
+    @include media-desktop {
+      margin-top: get-vw(25px);
+    }
+    @include media-laptop {
+      margin-top: 25px;
+    }
     @include media-tablet {
       margin-top: 10px;
     }
@@ -237,6 +284,9 @@
   max-width: 1095px;
   margin: 40px auto 0;
   animation: fade-in 0.3s ease;
+  @include media-desktop {
+    margin-top: get-vw(40px);
+  }
   @include media-tablet {
     flex-direction: column;
     align-items: flex-start;
@@ -255,6 +305,9 @@
   &__img {
     width: 35%;
     flex-shrink: 0;
+    @include media-desktop {
+      width: 24%;
+    }
     @include media-tablet {
       width: 100%;
       max-width: 250px;
@@ -271,8 +324,13 @@
     font-size: 16px;
     color: #fff;
     background: #d0d0d0;
+    @include media-desktop {
+      padding: get-vw(8px) get-vw(34px);
+      font-size: get-vw(16px);
+    }
     @include media-laptop {
       font-size: 12px;
+      padding: 8px 24px;
     }
     @include media-tablet {
       padding: 5px 28px;
@@ -297,6 +355,9 @@
   grid-template-columns: 1fr 24.5%;
   gap: 12px;
   color: #fff;
+  @include media-desktop {
+    gap: get-vw(12px);
+  }
   @include media-laptop {
     grid-template-columns: minmax(0, 1fr);
     gap: 30px;
@@ -320,6 +381,9 @@
   &__coach {
     position: relative;
     padding: 35px;
+    @include media-desktop {
+      padding: get-vw(35px);
+    }
     @include media-laptop {
       display: flex;
       align-items: center;
@@ -336,6 +400,12 @@
     &-name {
       font-weight: 700;
       font-size: 18px;
+      @include media-desktop {
+        font-size: get-vw(18px);
+      }
+      @include media-laptop {
+        font-size: 18px;
+      }
       @include media-tablet {
         font-size: 16px;
       }
@@ -344,6 +414,9 @@
   &__info {
     margin-top: 23px;
     text-align: center;
+    @include media-desktop {
+      margin-top: get-vw(23px);
+    }
     @include media-laptop {
       margin-top: 0;
       text-align: left;
@@ -354,6 +427,10 @@
     height: 153px;
     margin: 0 auto;
     flex-shrink: 0;
+    @include media-desktop {
+      width: get-vw(153px);
+      height: get-vw(153px);
+    }
     @include media-laptop {
       width: 100px;
       height: 100px;
@@ -375,6 +452,12 @@
     margin-top: 5px;
     font-size: 14px;
     letter-spacing: 0.03em;
+    @include media-desktop {
+      font-size: get-vw(14px);
+    }
+    @include media-laptop {
+      font-size: 14px;
+    }
   }
   &__online {
     position: absolute;
@@ -388,9 +471,17 @@
     font-weight: 400;
     font-size: 14px;
     border-radius: 10px;
+    @include media-desktop {
+      gap: get-vw(7px);
+      padding: get-vw(12px) get-vw(14px);
+      font-size: get-vw(14px);
+    }
     @include media-laptop {
       position: static;
       margin-left: auto;
+      gap: 7px;
+      padding: 12px 14px;
+      font-size: 14px;
     }
     @include media-tablet {
       padding: 7px 9px;
@@ -415,8 +506,13 @@
   &__conatiner {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 60px;
     padding: 30px 110px 30px 50px;
+    @include media-desktop {
+      gap: get-vw(60px);
+      padding: get-vw(30px) get-vw(110px) get-vw(30px) get-vw(50px);
+    }
     @include media-laptop {
       gap: 20px;
       flex-direction: column;
@@ -435,6 +531,10 @@
     line-height: 1.5;
     letter-spacing: 0.045em;
     color: $accent;
+    @include media-desktop {
+      max-width: get-vw(290px);
+      font-size: get-vw(29px);
+    }
     @include media-laptop {
       max-width: unset;
       font-size: 22px;
@@ -445,7 +545,10 @@
   }
   &__wrapper {
     display: flex;
-    gap: 32px;
+    gap: get-vw(32px);
+    @include media-laptop {
+      gap: 30px;
+    }
     @include media-tablet {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -459,6 +562,14 @@
     background: #000;
     border-radius: 10px;
     overflow: hidden;
+    @include media-desktop {
+      width: get-vw(310px);
+      height: get-vw(200px);
+    }
+    @include media-laptop {
+      width: 310px;
+      height: 200px;
+    }
     @include media-tablet {
       width: auto;
       height: auto;
@@ -499,6 +610,10 @@
     width: 78px;
     height: 78px;
     transition: 0.3s;
+    @include media-desktop {
+      width: get-vw(78px);
+      height: get-vw(78px);
+    }
     @include media-laptop {
       width: 50px;
       height: 50px;
@@ -528,6 +643,12 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.025em;
+    @include media-desktop {
+      font-size: get-vw(16px);
+    }
+    @include media-tablet {
+      font-size: 16px;
+    }
     @include media-tablet {
       font-size: 10px;
     }

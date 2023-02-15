@@ -13,6 +13,12 @@ $accent60: var(--accent60);
 $accent40: var(--accent40);
 
 // media
-$mediaWidthLaptop: 1610px;
+$mediaWidthDesktop: 1920px;
+$mediaWidthLaptop: 1249px;
+// $mediaWidthLaptop: 1610px;
 $mediaWidthTablet: 767px;
 $mediaWidthMobile: 320px;
+
+@function get-vw($px-vw, $base-vw: 1920px) {
+  @return calc(($px-vw * 100vw) / $base-vw);
+}

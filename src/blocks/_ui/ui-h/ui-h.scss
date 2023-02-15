@@ -20,6 +20,9 @@
   }
   &--max-w {
     max-width: 1190px;
+    @include media-laptop {
+      max-width: unset;
+    }
   }
   &--center {
     margin-right: auto;
