@@ -72,18 +72,18 @@
     }
   }
   &--xl {
-    padding: 29px 75px;
+    padding: 29px 75px 23px;
     font: 700 40px/1.2 $bebas;
     letter-spacing: 0.045em;
     background: $accent;
     border-radius: 10px;
     @include media-laptop {
-      padding: 20px 60px;
+      padding: 20px 60px 16px;
       font-size: 35px;
       border-radius: 8px;
     }
     @include media-tablet {
-      padding: 16px 50px;
+      padding: 16px 50px 13px;
       font-size: 16px;
       border-radius: 5px;
     }
